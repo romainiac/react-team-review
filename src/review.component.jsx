@@ -23,6 +23,16 @@ const Review = () => {
     });
   };
 
+  const getRandomIndex = () => {
+    return Math.floor(Math.random() * people.length);
+  };
+
+  const randomPerson = () => {
+    let random = getRandomIndex();
+    while (random === index) random = getRandomIndex();
+    setIndex(random);
+  };
+
   return (
     <article className="review">
       <div className="img-container">
@@ -42,7 +52,9 @@ const Review = () => {
           <FaChevronRight />
         </button>
       </div>
-      <button className="random-btn">suprise me</button>
+      <button className="random-btn" onClick={randomPerson}>
+        suprise me
+      </button>
     </article>
   );
 };
